@@ -51,5 +51,68 @@ namespace Finance.Tests
         }
 
         #endregion CalculateIrr
+
+
+        #region CalculateTimeWeightedReturn
+
+        [Test]
+        public void CalculateTimeWeightedReturn_ThrowsException_WhenNullStart()
+        {
+            decimal[] start = null;
+            decimal[] end   = { 100m, 150, 200m };
+
+            Assert.Throws<ArgumentNullException>(() => _irCalculator.CalculateTimeWeightedReturn(start, end));
+        }
+
+        [Test]
+        public void CalculateTimeWeightedReturn_ThrowsException_WhenNullEnd()
+        {
+            decimal[] start = { 100m, 150, 200m };
+            decimal[] end   = null;
+
+            Assert.Throws<ArgumentNullException>(() => _irCalculator.CalculateTimeWeightedReturn(start, end));
+        }
+
+        [Test]
+        public void CalculateTimeWeightedReturn_ThrowsException_WhenUnequalPeriods()
+        {
+            decimal[] start = { 100m, 150, 200m };
+            decimal[] end   = { 100m, 150 };
+
+            Assert.Throws<ArgumentException>(() => _irCalculator.CalculateTimeWeightedReturn(start, end));
+        }
+
+        [Test]
+        public void CalculateTimeWeightedReturn_ThrowsException_WhenNoPeriods()
+        {
+            decimal[] start = new decimal[0];
+            decimal[] end   = new decimal[0];
+
+            Assert.Throws<ArgumentException>(() => _irCalculator.CalculateTimeWeightedReturn(start, end));
+        }
+
+        [Test]
+        public void CalculateTimeWeightedReturn_Calculates_WhenSimple()
+        {
+            decimal[] start = { 500m,  1500m };
+            decimal[] end   = { 1000m, 1125m };
+
+            decimal rate = _irCalculator.CalculateTimeWeightedReturn(start, end);
+
+            Assert.That(rate, Is.EqualTo(50m));
+        }
+
+        [Test]
+        public void CalculateTimeWeightedReturn_Calculates_WhenComplex()
+        {
+            decimal[] start = { 1000m, 2400m, 2500m };
+            decimal[] end   = { 1200m, 2550m, 2600m };
+
+            decimal rate = _irCalculator.CalculateTimeWeightedReturn(start, end);
+
+            Assert.That(rate, Is.EqualTo(32.6m));
+        }
+
+        #endregion CalculateTimeWeightedReturn
     }
 }
