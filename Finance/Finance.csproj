@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FxForwardCalculator.cs" />
     <Compile Include="IrCalculator.cs" />
     <Compile Include="PvCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

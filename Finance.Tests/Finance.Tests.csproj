@@ -49,6 +49,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FxForwardCalculatorTests.cs" />
     <Compile Include="IrCalculatorTests.cs" />
     <Compile Include="PvCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
