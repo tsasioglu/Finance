@@ -18,7 +18,7 @@ namespace Finance
         /// Calculates the Net Present Value of given Future Values (cash flows).
         /// </summary>
         /// <param name="futureCashFlows">Future cash flows to be discounted</param>
-        /// <param name="interestRate">Interest rate (discount rate) for the period, in %</param>
+        /// <param name="interestRate">Interest rate (discount rate) for the period</param>
         /// <returns>Net Present Value of the future cash flows</returns>
         decimal CalculateNpv(decimal[] futureCashFlows, decimal interestRate);
     }
@@ -31,7 +31,7 @@ namespace Finance
         /// </summary>
         /// <param name="futureValue">Future cash flows to be discounted</param>
         /// <param name="dicountPeriods">Number of compounding periods to discount over</param>
-        /// <param name="interestRate">Interest rate for one compounding period, in %</param>
+        /// <param name="interestRate">Interest rate for one compounding period</param>
         /// <returns>Present Value</returns>
         public decimal CalculatePv(decimal futureValue, int dicountPeriods, decimal interestRate)
         {
@@ -44,7 +44,7 @@ namespace Finance
             if (futureValue == 0)
                 return 0;
 
-            decimal discounter = (decimal) Math.Pow((double) (1 + interestRate / 100), (uint)dicountPeriods);
+            decimal discounter = (decimal) Math.Pow((double) (1 + interestRate), (uint)dicountPeriods);
             return futureValue/discounter;
         }
 

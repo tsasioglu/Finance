@@ -50,8 +50,8 @@ namespace Finance
             if (futureCashFlows.Length < 1)
                 throw new ArgumentException("Must contain at least one future cash flow", "futureCashFlows");
 
-            decimal previousIr = 5;
-            decimal currentIr = 10;
+            decimal previousIr = 0.05m;
+            decimal currentIr  = 0.1m;
             decimal previousNpv = _pvCalculator.CalculateNpv(futureCashFlows, previousIr) + pv;
             decimal nextIr;
 
@@ -97,7 +97,7 @@ namespace Finance
             var finalRatio = startOfPeriodAmounts.Zip(endOfPeriodAmounts, (start, end) => end / start)
                                                  .Aggregate((x, y) => x * y);
 
-            return (finalRatio - 1) * 100;
+            return finalRatio - 1;
         }
     }
 }

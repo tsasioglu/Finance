@@ -21,7 +21,7 @@ namespace Finance.Tests
         {
             const decimal futureValue     = 0;
             const int     discountPeriods = -1;
-            const decimal interestRate    = 2;
+            const decimal interestRate    = 0.02m;
 
             Assert.Throws<ArgumentOutOfRangeException>(() => _pvCalculator.CalculatePv(futureValue, discountPeriods, interestRate));
         }
@@ -31,7 +31,7 @@ namespace Finance.Tests
         {
             const decimal futureValue     = 0;
             const int     discountPeriods = 2;
-            const decimal interestRate    = 2;
+            const decimal interestRate    = 0.02m;
 
             decimal pv = _pvCalculator.CalculatePv(futureValue, discountPeriods, interestRate);
 
@@ -43,7 +43,7 @@ namespace Finance.Tests
         {
             const decimal futureValue     = 100;
             const int     discountPeriods = 0;
-            const decimal interestRate    = 2;
+            const decimal interestRate    = 0.02m;
 
             decimal pv = _pvCalculator.CalculatePv(futureValue, discountPeriods, interestRate);
 
@@ -67,7 +67,7 @@ namespace Finance.Tests
         {
             const decimal futureValue     = 1000;
             const int     discountPeriods = 5;
-            const decimal interestRate    = 10;
+            const decimal interestRate    = 0.1m;
 
             decimal pv = _pvCalculator.CalculatePv(futureValue, discountPeriods, interestRate);
 
@@ -79,7 +79,7 @@ namespace Finance.Tests
         {
             const decimal futureValue     = 42000000;
             const int     discountPeriods = 104;
-            const decimal interestRate    = 3.5677m;
+            const decimal interestRate    = 0.035677m;
 
             decimal pv = _pvCalculator.CalculatePv(futureValue, discountPeriods, interestRate);
 
@@ -94,7 +94,7 @@ namespace Finance.Tests
         public void CalculateNPv_ThrowsException_WhenNullFutureValues()
         {
             decimal[]     futureValues     = null;
-            const decimal interestRate     = 3.5677m;
+            const decimal interestRate     = 0.035677m;
             
             Assert.Throws<ArgumentNullException>(() => _pvCalculator.CalculateNpv(futureValues, interestRate));
         }
@@ -103,7 +103,7 @@ namespace Finance.Tests
         public void CalculateNPv_ThrowsException_WhenNoFutureValuesGiven()
         {
             decimal[]     futureValues     = new decimal[0];
-            const decimal interestRate     = 3.5677m;
+            const decimal interestRate     = 0.035677m;
 
             Assert.Throws<ArgumentException>(() => _pvCalculator.CalculateNpv(futureValues, interestRate));
         }
@@ -112,7 +112,7 @@ namespace Finance.Tests
         public void CalculateNPv_Calculates_WhenSimple()
         {
             decimal[]     futureValues = { 110m, 121m };
-            const decimal interestRate = 10m;
+            const decimal interestRate = 0.1m;
 
             decimal npv = _pvCalculator.CalculateNpv(futureValues, interestRate);
 
@@ -123,7 +123,7 @@ namespace Finance.Tests
         public void CalculateNPv_Calculates_WhenComplex()
         {
             decimal[]     futureValues = { -100000m, 10000m, 10000m, 10000m, -45456m, 10000m, 10000m, 17863m, -23789m, 10000m, 10000m, 10000m, 10000m };
-            const decimal interestRate = 10m;
+            const decimal interestRate = 0.1m;
 
             decimal npv = _pvCalculator.CalculateNpv(futureValues, interestRate);
 

@@ -19,8 +19,8 @@ namespace Finance.Tests
         [Test]
         public void CalculateIrr_ThrowsException_WhenNullFutureValues()
         {
-            decimal[] futureValues = null;
-            const decimal pv = 300m;
+            decimal[]     futureValues = null;
+            const decimal pv           = 300m;
 
             Assert.Throws<ArgumentNullException>(() => _irCalculator.CalculateIrr(futureValues, pv));
         }
@@ -28,8 +28,8 @@ namespace Finance.Tests
         [Test]
         public void CalculateIrr_ThrowsException_WhenNoFutureValuesGiven()
         {
-            decimal[] futureValues = new decimal[0];
-            const decimal pv = 300m;
+            decimal[]     futureValues = new decimal[0];
+            const decimal pv           = 300m;
 
             Assert.Throws<ArgumentException>(() => _irCalculator.CalculateIrr(futureValues, pv));
         }
@@ -39,7 +39,7 @@ namespace Finance.Tests
         {
             decimal irr = _irCalculator.CalculateIrr(new[] { 1100m, 1210m }, -2000m);
 
-            Assert.That(irr, Is.InRange(10m - 0.00001m, 10m + 0.00001m));
+            Assert.That(irr, Is.InRange(0.1m - 0.0000001m, 0.1m + 0.0000001m));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace Finance.Tests
         {
             decimal irr = _irCalculator.CalculateIrr(new[] { 10000m, -12000m, 13232m, 12323m }, -20450m);
 
-            Assert.That(irr, Is.InRange(4.5975867663677017941645953688m - 0.00001m, 4.5975867663677017941645953688m + 0.00001m));
+            Assert.That(irr, Is.InRange(0.045975867663677017941645953688m - 0.0000001m, 0.045975867663677017941645953688m + 0.0000001m));
         }
 
         #endregion CalculateIrr
@@ -99,7 +99,7 @@ namespace Finance.Tests
 
             decimal rate = _irCalculator.CalculateTimeWeightedReturn(start, end);
 
-            Assert.That(rate, Is.EqualTo(50m));
+            Assert.That(rate, Is.EqualTo(0.5m));
         }
 
         [Test]
@@ -110,7 +110,7 @@ namespace Finance.Tests
 
             decimal rate = _irCalculator.CalculateTimeWeightedReturn(start, end);
 
-            Assert.That(rate, Is.EqualTo(32.6m));
+            Assert.That(rate, Is.EqualTo(0.326m));
         }
 
         #endregion CalculateTimeWeightedReturn
