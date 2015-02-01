@@ -39,10 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FxForwardCalculator.cs" />
-    <Compile Include="IrCalculator.cs" />
-    <Compile Include="PvCalculator.cs" />
+    <Compile Include="Data\YahooSpotProvider.cs" />
+    <Compile Include="Calculators\FxForwardCalculator.cs" />
+    <Compile Include="Calculators\IrCalculator.cs" />
+    <Compile Include="Calculators\PvCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\YahooModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

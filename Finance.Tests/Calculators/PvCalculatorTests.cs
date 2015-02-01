@@ -1,7 +1,8 @@
 ﻿using System;
+using Finance.Calculators;
 using NUnit.Framework;
 
-namespace Finance.Tests
+namespace Finance.Tests.Calculators
 {
     [TestFixture]
     public class PvCalculatorTests

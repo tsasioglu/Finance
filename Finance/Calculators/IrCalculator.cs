@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Finance
+namespace Finance.Calculators
 {
     public interface IIrCalculator
     {

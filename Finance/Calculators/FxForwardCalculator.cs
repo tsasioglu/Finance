@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Finance
+namespace Finance.Calculators
 {
     public interface IFxForwardCalculator
     {
