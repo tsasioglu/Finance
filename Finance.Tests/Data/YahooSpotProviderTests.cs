@@ -11,12 +11,12 @@ namespace Finance.Tests.Data
     {
         private YahooSpotProvider _yahooSpotProvider;
 
-        private Mock<IYahooStreamProvider> _yahooStreamProvider;
+        private Mock<IStreamProvider> _yahooStreamProvider;
 
         [SetUp]
         public void SetUp()
         {
-            _yahooStreamProvider = new Mock<IYahooStreamProvider>();
+            _yahooStreamProvider = new Mock<IStreamProvider>();
 
             _yahooStreamProvider.Setup(sp => sp.GetStream(It.IsAny<string>()))
                                 .Returns(() => new StreamReader(@"../../YahooSingleCurrencyTestData.xml").BaseStream);
