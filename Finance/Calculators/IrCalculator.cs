@@ -45,10 +45,10 @@ namespace Finance.Calculators
         public decimal CalculateIrr(decimal[] futureCashFlows, decimal pv)
         {
             if (futureCashFlows == null)
-                throw new ArgumentNullException("futureCashFlows", "Must not be null");
+                throw new ArgumentNullException("futureCashFlows", "Must not be null. ");
 
             if (futureCashFlows.Length < 1)
-                throw new ArgumentException("Must contain at least one future cash flow", "futureCashFlows");
+                throw new ArgumentException("Must contain at least one future cash flow. ", "futureCashFlows");
 
             decimal previousIr = 0.05m;
             decimal currentIr  = 0.1m;
@@ -83,16 +83,16 @@ namespace Finance.Calculators
         public decimal CalculateTimeWeightedReturn(decimal[] startOfPeriodAmounts, decimal[] endOfPeriodAmounts)
         {
             if (startOfPeriodAmounts == null)
-                throw new ArgumentNullException("startOfPeriodAmounts", "Must not be null");
+                throw new ArgumentNullException("startOfPeriodAmounts", "Must not be null. ");
 
             if (endOfPeriodAmounts == null)
-                throw new ArgumentNullException("endOfPeriodAmounts", "Must not be null");
+                throw new ArgumentNullException("endOfPeriodAmounts", "Must not be null. ");
 
             if (startOfPeriodAmounts.Length != endOfPeriodAmounts.Length)
-                throw new ArgumentException("Must have equal number of start and end amounts", "startOfPeriodAmounts");
+                throw new ArgumentException("Must have equal number of start and end amounts. ", "startOfPeriodAmounts");
 
             if (startOfPeriodAmounts.Length < 1)
-                throw new ArgumentException("Must contain at least one period", "startOfPeriodAmounts");
+                throw new ArgumentException("Must contain at least one period. ", "startOfPeriodAmounts");
 
             var finalRatio = startOfPeriodAmounts.Zip(endOfPeriodAmounts, (start, end) => end / start)
                                                  .Aggregate((x, y) => x * y);

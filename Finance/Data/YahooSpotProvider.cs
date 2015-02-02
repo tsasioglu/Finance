@@ -29,10 +29,10 @@ namespace Finance.Data
         public ExchangeRate GetSpotRate(string currencyPair)
         {
             if(currencyPair == null)
-                throw new ArgumentNullException("currencyPair", "Must not be null");
+                throw new ArgumentNullException("currencyPair", "Must not be null. ");
 
             if(currencyPair.Trim().Length != 6)
-                throw new ArgumentException("Must be of the format e.g. 'USDEUR'", "currencyPair");
+                throw new ArgumentException("Must be of the format e.g. 'USDEUR'. ", "currencyPair");
 
             Stream stream = _yahooStreamProvider.GetStream(currencyPair.Trim());
             return Deserialise(stream).Results.Single();

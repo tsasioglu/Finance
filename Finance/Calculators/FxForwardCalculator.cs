@@ -43,8 +43,8 @@ namespace Finance.Calculators
         /// <returns>Forward FX Rate</returns>
         public decimal CalculateForwardRate(decimal spot, int days, decimal baseInterestRate, DayCountConvention baseDayCountConvention, decimal quotedInterestRate, DayCountConvention quotedDayCountConvention)
         {
-            if (spot <= 0) throw new ArgumentOutOfRangeException("spot", "Must not be null");
-            if (days < 0)  throw new ArgumentOutOfRangeException("days", "Must not be null");
+            if (spot <= 0) throw new ArgumentOutOfRangeException("spot", "Must not be null. ");
+            if (days < 0)  throw new ArgumentOutOfRangeException("days", "Must not be null. ");
 
             decimal quotedEffectiveRate = quotedInterestRate * days / (int)quotedDayCountConvention;
             decimal baseEffectiveRate   = baseInterestRate   * days / (int)baseDayCountConvention;
