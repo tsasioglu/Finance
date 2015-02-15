@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Calculators\FxForwardCalculator.cs" />
     <Compile Include="Calculators\IrCalculator.cs" />
-    <Compile Include="Calculators\PolationCalculator.cs">
+    <Compile Include="Calculators\InterpolationCalculator.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Calculators\PvCalculator.cs" />

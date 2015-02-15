@@ -7,15 +7,15 @@ namespace Finance.Tests.Calculators
     [TestFixture]
     public class PolationCalculatorTests
     {
-        private PolationCalculator _calculator;
+        private InterpolationCalculator _calculator;
 
         [SetUp]
         public void SetUp()
         {
-            _calculator = new PolationCalculator();
+            _calculator = new InterpolationCalculator();
         }
 
-        #region StraightLineIntepolate
+        #region LinearStraightLineIntepolate
 
         [Test]
         public void StraightLineIntepolate_Calculates_WhenSameDays()
@@ -26,7 +26,7 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.085m;
             const decimal targetDays = 39m;
 
-            Assert.Throws<ArgumentException>(() => _calculator.StraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays));
+            Assert.Throws<ArgumentException>(() => _calculator.LinearStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays));
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.08m;
             const decimal targetDays = 39m;
 
-            decimal targetRate = _calculator.StraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
+            decimal targetRate = _calculator.LinearStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
 
             Assert.That(targetRate, Is.EqualTo(0.08m));
         }
@@ -52,14 +52,14 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.085m;
             const decimal targetDays = 39m;
 
-            decimal targetRate = _calculator.StraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
+            decimal targetRate = _calculator.LinearStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
 
             Assert.That(targetRate, Is.EqualTo(0.0814516129032258064516129034m));
         }
 
-        #endregion StraightLineIntepolate
+        #endregion LinearStraightLineIntepolate
 
-        #region LogarithmicIntepolate
+        #region LogarithmicStraightLineIntepolate
 
         [Test]
         public void LogarithmicIntepolate_Calculates_WhenSameDays()
@@ -70,7 +70,7 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.085m;
             const decimal targetDays = 39m;
 
-            Assert.Throws<ArgumentException>(() => _calculator.LogarithmicIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays));
+            Assert.Throws<ArgumentException>(() => _calculator.LogarithmicStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays));
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.08m;
             const decimal targetDays = 39m;
 
-            decimal targetRate = _calculator.LogarithmicIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
+            decimal targetRate = _calculator.LogarithmicStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
 
             Assert.That(targetRate, Is.EqualTo(0.08m));
         }
@@ -96,11 +96,11 @@ namespace Finance.Tests.Calculators
             const decimal secondRate = 0.076m;
             const decimal targetDays = 73m;
 
-            decimal targetRate = _calculator.LogarithmicIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
+            decimal targetRate = _calculator.LogarithmicStraightLineIntepolate(firstDays, firstRate, secondDays, secondRate, targetDays);
 
             Assert.That(targetRate, Is.EqualTo(7.53855263288879m));
         }
 
-        #endregion LogarithmicIntepolate
+        #endregion LogarithmicStraightLineIntepolate
     }
 }

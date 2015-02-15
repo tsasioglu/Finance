@@ -2,7 +2,7 @@
 
 namespace Finance.Calculators
 {
-    public class PolationCalculator
+    public class InterpolationCalculator
     {
         /// <summary>
         /// Uses straight line interpolation to calculate the estimated value between two points.
@@ -13,7 +13,7 @@ namespace Finance.Calculators
         /// <param name="y2">Second known value in the second dimension</param>
         /// <param name="xTarget">Value between x1 and x2 in the first dimension for which we wish to find the corresponding value in the second dimension</param>
         /// <returns>Value between y1 and y2 in the second dimension which corresponds to xTarget</returns>
-        public decimal StraightLineIntepolate(decimal x1, decimal y1, decimal x2, decimal y2, decimal xTarget)
+        public decimal LinearStraightLineIntepolate(decimal x1, decimal y1, decimal x2, decimal y2, decimal xTarget)
         {
             if (x1 == x2)
                 throw new ArgumentException(String.Format("Distinct reference points required. Only '{0}' provided. ", x1));
@@ -35,7 +35,7 @@ namespace Finance.Calculators
         /// <param name="y2">Second known value in the second dimension</param>
         /// <param name="xTarget">Value between x1 and x2 in the first dimension for which we wish to find the corresponding value in the second dimension</param>
         /// <returns>Value between y1 and y2 in the second dimension which corresponds to xTarget</returns>
-        public decimal LogarithmicIntepolate(decimal x1, decimal y1, decimal x2, decimal y2, decimal xTarget)
+        public decimal LogarithmicStraightLineIntepolate(decimal x1, decimal y1, decimal x2, decimal y2, decimal xTarget)
         {
             if (x1 == x2)
                 throw new ArgumentException(String.Format("Distinct reference points required. Only '{0}' provided. ", x1));
