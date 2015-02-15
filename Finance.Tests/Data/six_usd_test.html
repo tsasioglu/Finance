@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>SIX Swiss Exchange</title><meta http-equiv="X-UA-Compatible" content="IE=5"/><link type="text/css" href="/resources/styles/ssecom-default.css?20120907" rel="stylesheet"/><link type="text/css" href="/resources/styles/ssecom-dojocalendar@fxnbsbsg.css" rel="stylesheet"/><link type="text/css" href="/resources/styles/Tooltip@ggf2v8e8.css" rel="stylesheet"/><link type="text/css" href="/javascript/dojo-1.1.2/release/dojo/dijit/themes/dijit.css" rel="stylesheet"/><script type="text/javascript" language="javascript">
+          
+          function hasData(text) {
+          return text.value != null && text.value.length > 0;
+          }
+
+          
+          </script><script type="text/javascript" language="javascript">
+          function navAction(state, id) {
+          if (state == "expanded") {
+          
+          dojo.style('t_' + id + '_collapsed', 'display', 'block');
+          dojo.style('t_' + id + '_expanded', 'display', 'none');
+          } else if (state == "collapsed") {
+          
+          dojo.style('t_' + id + '_collapsed', 'display', 'none');
+          dojo.style('t_' + id + '_expanded', 'display', 'block');
+          }
+          }
+        </script><script type="text/javascript" language="javascript">
+          function doHover(obj) {
+          obj.className += "-hover";
+          }
+
+          function undoHover(obj) {
+          obj.className = obj.className.replace(/\b-hover\b/,'');
+          }
+        </script><script type="text/javascript" language="javascript">
+        var quicklinkTitle = 'Home';
+      </script><script type="text/javascript" language="javascript">
+        djConfig = {
+          usePlainJson: true,
+          isDebug: false,
+          parseOnLoad: true,
+          locale:
+        'en-us'
+        };
+      </script><script language="JavaScript" type="text/javascript">
+        var dojoURL = window.location.protocol + "//" + window.location.host + "/javascript/dojo-1.1.2/release/dojo/dojo/dojo.js";
+        document.write(unescape('%3Cscript language="JavaScript" type="text/javascript" src="' + dojoURL + '"%3E;%3C/script%3E'));
+      </script><script type="text/javascript" src="/javascript/dojo-1.1.2/release/dojo/dojo/swxDojo.js">;</script><script type="text/javascript" src="/javascript/common/logger@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/fqs/QuotePlayer@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/common/md5@hpydsctc.js">;</script><script type="text/javascript" src="/resources/scripts/tableConfiguration@g8wzprx4.js">;</script><script type="text/javascript" src="/resources/scripts/metaNavigation@hivovc5c.js">;</script><script type="text/javascript" src="/resources/scripts/topNavigation@gv3v2n8g.js">;</script><script type="text/javascript" src="/resources/scripts/htmlCoordinates@g8wzprx4.js">;</script><script type="text/javascript" language="javascript">
+        dojo.require("dojo.parser");
+        dojo.require("dojox.grid.Grid");
+        dojo.require("dojox.grid._data.model");
+        dojo.require("dijit.form.Button");
+        dojo.require("dijit.Menu");
+        dojo.require("dijit.Tooltip");
+</script><script type="text/javascript" language="javascript">
+      DELAYED_15_IMG_SRC = "/resources/images/icons_inv/delay_15.png";
+      DELAYED_0_IMG_SRC = "/resources/images/icons_inv/delay_0.png";
+      
+          DELAYED_15_TXT_STR = "15 minutes delayed";
+          DELAYED_0_TXT_STR = "Real time";
+          CHART_MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        
+
+      // Shows alternative index chart
+      function showBox(setName, key) {
+
+      // Get the list of indices in this set
+      var setList = pageIndexList[setName];
+      var index = 0;
+      for (var i=0; i < setList.length; i++) {
+
+      // For the required index, switch on visibility and load it
+      if (setList[i] == key) {
+      index = i;
+      dojo.style(setName + "Box" + key, "visibility", "");
+      dojo.addClass(dojo.byId("chartBox"+key), "chartBox-active");
+
+      // Load values if not already done
+      if (!dojo.eval("smallchart"+setList[i]+".values_domain.id")) {
+      dojo.eval("smallchart"+setList[i]
+      +".getAjaxValues(\"id\", smallchart"+setList[i]+".id)");
+      }
+      } else {
+
+      // For the others, switch off visibilty
+      dojo.style(setName + "Box" + setList[i], "visibility", "hidden");
+      dojo.removeClass(dojo.byId("chartBox"+setList[i]), "chartBox-active");
+      }
+      }
+      return index;
+      }
+    </script><script type="text/javascript" src="/resources/scripts/chartConfig@g2mz4my0.js">;</script><script type="text/javascript" src="/javascript/charts/chart_main@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_dataUpdater@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_drawer@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_graphDrawer@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_axisDrawer@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_valuesHelper@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_valuesHelper_Advanced@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_functions_Advanced@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_slider_Advanced@i09pjuq8.js">;</script><script type="text/javascript" src="/javascript/charts/chart_addonDrawer_Advanced@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_eventDrawer_Advanced@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_indicators_Advanced@hpydsctc.js">;</script><script type="text/javascript" src="/javascript/charts/chart_config_Advanced@hpydsctc.js">;</script></head><body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0"><style>
+            body,
+            html {
+              background: none;
+            }
+          </style><table border="0" cellspacing="0" cellpadding="0" height="100%" width="100%"><tr valign="top" height="100%"><td base-dir="http://mpzhlitf41:1828/ssecom"><table border="0" cellpadding="0" cellspacing="0"><tr><td class="main" width="596"><br/><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><h1>SIX Swiss Exchange</h1></td></tr></table><p class="para"><b>Yield curves data</b><p class="para">Country
+                :
+                United States</p><div><table border="0" cellspacing="0" cellpadding="0" class="table-grid" hover="true" skipNewline="true"><tr><td><img src="/resources/images/trans@g5gkkl8o.png" height="1" width="1" border="0" hspace="0" vspace="0"/></td><td><img src="/resources/images/trans@g5gkkl8o.png" height="1" width="1" border="0" hspace="0" vspace="0"/></td><td><img src="/resources/images/trans@g5gkkl8o.png" height="1" width="1" border="0" hspace="0" vspace="0"/></td><td><img src="/resources/images/trans@g5gkkl8o.png" height="1" width="1" border="0" hspace="0" vspace="0"/></td></tr><tr class="row-head"><td class="first">&nbsp;</td><td>Government bonds</td><td>Interest rate swaps</td><td>Deposit rates</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">1D</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.04</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">2D</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.085</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">3D</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.04</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">1W</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.105</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">2W</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.25</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">3W</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.25</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">1M</td><td align="left" valign="top">0.0152</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.14</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">2M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.185</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">3M</td><td align="left" valign="top">0.0101</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.335</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">4M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.375</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">5M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.53</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">6M</td><td align="left" valign="top">0.0706</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.465</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">7M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.515</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">8M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.61</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">9M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">0.66</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">1Y</td><td align="left" valign="top">0.2283</td><td align="left" valign="top">0.49</td><td align="left" valign="top">0.95</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">18M</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">2Y</td><td align="left" valign="top">0.6482</td><td align="left" valign="top">0.91</td><td align="left" valign="top">1.37</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">3Y</td><td align="left" valign="top">1.0425</td><td align="left" valign="top">1.254</td><td align="left" valign="top">1.93</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">4Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">1.4915</td><td align="left" valign="top">2.18</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">5Y</td><td align="left" valign="top">1.5023</td><td align="left" valign="top">1.662</td><td align="left" valign="top">2.36</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">6Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">1.8175</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">7Y</td><td align="left" valign="top">1.8068</td><td align="left" valign="top">1.923</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">8Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.0085</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">9Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.079</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">10Y</td><td align="left" valign="top">1.9914</td><td align="left" valign="top">2.1385</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">11Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">3.8335</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">12Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.236</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">13Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">4.073</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">14Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">4.1095</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">15Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.3355</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">16Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">17Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">18Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">19Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">20Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.4235</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">24Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">25Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">2.4645</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">30Y</td><td align="left" valign="top">2.5784</td><td align="left" valign="top">2.488</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-even" onmouseover="this.className='row-even-mouseover'" onmouseout="this.className='row-even'"><td class="first" align="left" valign="top">40Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr><tr class="row-odd" onmouseover="this.className='row-odd-mouseover'" onmouseout="this.className='row-odd'"><td class="first" align="left" valign="top">50Y</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td><td align="left" valign="top">&nbsp;</td></tr></table></div></p><br/></td></tr></table></td></tr><tr><td height="100%" style="text-align:center;vertical-align:bottom;"><a href="#" onclick="self.close();return false;"><span>
+                          close
+                        </span></a><br/><br/></td></tr></table><script type="text/javascript" language="javascript">
+        var isHttps = "https:" == document.location.protocol;
+      </script><script type="text/javascript" language="javascript">
+        if (!isHttps) {
+          try {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-1241259-1', 'six-swiss-exchange.com');
+            ga('set', 'anonymizeIp', true);
+            ga('send', 'pageview');
+
+            window.onload = function() {
+              var a = document.getElementsByTagName('a');
+              for (i = 0; i < a.length; i++) {
+                if (a[i].hostname === location.hostname) {
+                  if (a[i].href.match(/^https?:\/\/.+\.(txt|csv|xls|xlsx|xlsb|doc|docx|pdf|zip|gz|swf|flv|rdf|cer|ics)$/i)) {
+                    a[i].setAttribute('target', '_blank');
+                    a[i].onclick = function() {
+                      ga('send', 'event', 'Downloads', 'Click', this.getAttribute('href'));
+                    };
+                  }
+                }
+              }
+            }
+          } catch(err) {}
+        }
+      </script></body></html>

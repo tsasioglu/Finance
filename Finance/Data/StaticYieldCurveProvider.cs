@@ -1,22 +1,5 @@
 ﻿namespace Finance.Data
 {
-    public class YieldPoint
-    {
-        public Tenor Tenor { get; set; }
-        public decimal Yield { get; set; }
-
-        public YieldPoint(Tenor tenor, decimal yield)
-        {
-            Tenor = tenor;
-            Yield = yield;
-        }
-    }
-
-    public interface IYieldCurveProvider
-    {
-        YieldPoint[] GetCurve();
-    }
-
     public class StaticYieldCurveProvider : IYieldCurveProvider
     {
         private static readonly YieldPoint[] UkData = 
@@ -41,7 +24,7 @@
             new YieldPoint(new Tenor("50Y"), 2.002m), 
         };
         
-        public YieldPoint[] GetCurve()
+        public YieldPoint[] GetCurve(string currency)
         {
             return UkData;
         }

@@ -53,6 +53,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Data\SixYieldCurveProviderTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Data\YahooSpotProviderTests.cs" />
     <Compile Include="Calculators\FxForwardCalculatorTests.cs" />
     <Compile Include="Calculators\IrCalculatorTests.cs" />
@@ -72,6 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\six_usd_test.html" />
     <Content Include="YahooSingleCurrencyTestData.xml" />
   </ItemGroup>
   <Choose>

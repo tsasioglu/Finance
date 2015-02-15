@@ -42,6 +42,26 @@ namespace Finance
             }
         }
 
+        public int Days
+        {
+            get
+            {
+                switch (Unit)
+                {
+                    case TenorUnit.Days:
+                        return Value;
+                    case TenorUnit.Weeks:
+                        return Value * 7;
+                    case TenorUnit.Months:
+                        return Value * 30;
+                    case TenorUnit.Years:
+                        return Value*365;
+                    default:
+                        return 0;
+                }
+            }
+        }
+
     }
 
     public enum TenorUnit
