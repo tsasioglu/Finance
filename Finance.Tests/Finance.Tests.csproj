@@ -53,6 +53,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Calculators\PolationCalculatorTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Data\SixYieldCurveProviderTests.cs">
       <SubType>Code</SubType>
     </Compile>
