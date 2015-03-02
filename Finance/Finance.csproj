@@ -49,6 +49,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Calculators\PvCalculator.cs" />
+    <Compile Include="Calculators\StatisticsCalculator.cs" />
     <Compile Include="Data\IYieldCurveProvider.cs">
       <SubType>Code</SubType>
     </Compile>
