@@ -37,5 +37,25 @@ namespace Finance.Calculators
         {
             return (decimal) Math.Sqrt((double) CalculateVariance(values, sample));
         }
+
+        /// <summary>
+        /// Calculates the annualised historic volatility of the values given
+        /// </summary>
+        /// <param name="values">List of observed values</param>
+        /// <param name="annualFrequency">Number of given values which span a year</param>
+        /// <param name="sample">True if values is a sample. False if values is the entire population</param>
+        /// <returns>Annualised historic volatility</returns>
+        public decimal CalculateHistoricVolatility(IList<decimal> values, decimal annualFrequency)
+        {
+            if (values == null) throw new ArgumentNullException("values", "Must not be null. ");
+
+            decimal[] inputs = values.ToArray();
+
+            if (!inputs.Any()) throw new ArgumentException("Must not be empty. ", "values");
+            
+            IEnumerable<decimal> logDifferences = inputs.Zip(inputs.Skip(1), (start, end) => (decimal) Math.Log((double) (end / start)));
+            decimal sd = CalculateStandardDeviation(logDifferences, true);
+            return sd * (decimal) Math.Sqrt((double) annualFrequency);
+        }
     }
 }

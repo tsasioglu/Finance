@@ -48,7 +48,7 @@ namespace Finance.Tests.Calculators
         public void CalculateVariance_ReturnsCorrect_WhenSimple()
         {
             IEnumerable<decimal> inputs = new[] { 83m, 87m, 82m, 89m, 88m };
-
+            
             decimal variance = _calculator.CalculateVariance(inputs);
 
             Assert.That(variance, Is.EqualTo(7.76m));
@@ -110,7 +110,7 @@ namespace Finance.Tests.Calculators
         public void CalculateStandardDeviation_ReturnsCorrect_WhenSimple_Samples()
         {
             IEnumerable<decimal> inputs = new[] { 83m, 87m, 82m, 89m, 88m };
-            bool sample = true;
+            bool sample                 = true;
 
             decimal variance = _calculator.CalculateStandardDeviation(inputs, sample);
 
@@ -118,5 +118,67 @@ namespace Finance.Tests.Calculators
         }
 
         #endregion CalculateStandardDeviation Tests
+
+        #region CalculateHistoricVolatility Tests
+
+        [Test]
+        public void CalculateHistoricVolatility_ThrowsException_WhenNullInputs()
+        {
+            IList<decimal> inputs = null;
+            decimal frequency     = 12m;
+
+            Assert.Throws<ArgumentNullException>(() => _calculator.CalculateHistoricVolatility(inputs, frequency));
+        }
+
+        [Test]
+        public void CalculateHistoricVolatility_ThrowsException_WhenZeroFrequency()
+        {
+            IList<decimal> inputs = new[] { 1.8m };
+            decimal frequency     = 0m;
+
+            Assert.Throws<ArgumentException>(() => _calculator.CalculateHistoricVolatility(inputs, frequency));
+        }
+
+        [Test]
+        public void CalculateHistoricVolatility_ThrowsException_WhenEmptyInputs()
+        {
+            IList<decimal> inputs = new List<decimal>();
+            decimal frequency     = 12m;
+
+            Assert.Throws<ArgumentException>(() => _calculator.CalculateHistoricVolatility(inputs, frequency));
+        }
+
+        [Test]
+        public void CalculateHistoricVolatility_ThrowsException_WhenSingleInput()
+        {
+            IList<decimal> inputs = new[] { 1.8m };
+            decimal frequency     = 12m;
+
+            Assert.Throws<ArgumentException>(() => _calculator.CalculateHistoricVolatility(inputs, frequency));
+        }
+
+        [Test]
+        public void CalculateHistoricVolatility_ReturnsZero_WhenTwoInputs()
+        {
+            IList<decimal> inputs = new[] { 1.8m, 1.9m };
+            decimal frequency     = 12m;
+
+            decimal variance = _calculator.CalculateHistoricVolatility(inputs, frequency);
+
+            Assert.That(variance, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void CalculateHistoricVolatility_ReturnsCorrect_WhenSimple()
+        {
+            IList<decimal> inputs = new[] { 1.8220m, 1.8345m, 1.8315m, 1.8350m, 1.8265m };
+            decimal frequency     = 252m;
+
+            decimal variance = _calculator.CalculateHistoricVolatility(inputs, frequency);
+
+            Assert.That(variance, Is.EqualTo(0.078363854623528591972113457m));
+        }
+
+        #endregion CalculateHistoricVolatility Tests
     }
 }
